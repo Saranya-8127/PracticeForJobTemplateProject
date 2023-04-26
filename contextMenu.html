@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Button, Text and Page Color</title>
+  <style>
+    /* Style for the context menu */
+    .context-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      min-width: 120px;
+    }
+
+    .context-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .context-menu ul li {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .context-menu ul li:hover {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Change Button, Text and Page Color</h1>
+
+  <button id="myButton" style="background-color: black; color: rgb(252, 250, 250);">Click Me</button>
+
+  <div class="context-menu" id="context-menu">
+    <ul>
+      <li id="button-red">Button Red</li>
+      <li id="button-green">Button Green</li>
+      <li id="button-blue">Button Blue</li>
+      <li id="text-red">Text Red</li>
+      <li id="text-green">Text Green</li>
+      <li id="text-blue">Text Blue</li>
+      <li id="page-red">Page Red</li>
+      <li id="page-green">Page Green</li>
+      <li id="page-blue">Page Blue</li>
+    </ul>
+  </div>
+
+  <p>Right-click on the button or anywhere on the page to open the context menu and change the colors.</p>
+
+  <script>
+    // Get the button and context menu elements
+    var myButton = document.getElementById("myButton");
+    var contextMenu = document.getElementById("context-menu");
+
+    // Add an event listener for the contextmenu event on the button
+    myButton.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+
+      // Show the context menu at the mouse position
+      contextMenu.style.left = e.pageX + "px";
+      contextMenu.style.top = e.pageY + "px";
+      contextMenu.style.display = "block";
+    });
+
+    // Add an event listener for the contextmenu event on the page
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+
+      // Show the context menu at the mouse position
+      contextMenu.style.left = e.pageX + "px";
+      contextMenu.style.top = e.pageY + "px";
+      contextMenu.style.display = "block";
+    });
+
+    // Add event listeners for the menu items
+    document.getElementById("button-red").addEventListener("click", function() {
+      myButton.style.backgroundColor = "red";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("button-green").addEventListener("click", function() {
+      myButton.style.backgroundColor = "green";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("button-blue").addEventListener("click", function() {
+      myButton.style.backgroundColor = "blue";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("text-red").addEventListener("click", function() {
+      document.body.style.color = "red";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("text-green").addEventListener("click", function() {
+      document.body.style.color       = "green";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("text-blue").addEventListener("click", function() {
+      document.body.style.color = "blue";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-red").addEventListener("click", function() {
+      document.body.style.backgroundColor = "red";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-green").addEventListener("click", function() {
+      document.body.style.backgroundColor = "green";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-blue").addEventListener("click", function() {
+      document.body.style.backgroundColor = "blue";
+      contextMenu.style.display = "none";
+    });
+
+    // Add an event listener for clicks outside of the context menu to close it
+    document.addEventListener("click", function(e) {
+      if (!contextMenu.contains(e.target)) {
+        contextMenu.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

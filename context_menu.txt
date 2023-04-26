@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Page Color with Context Menu</title>
+  <style>
+    /* Style for the context menu */
+    .context-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      min-width: 120px;
+    }
+
+    .context-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .context-menu ul li {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .context-menu ul li:hover {
+      background-color: #f2f2f2;
+    }
+    
+  </style>
+</head>
+<body>
+  <h1>Change Page Color with Context Menu</h1>
+   <button id="myButton" style="background-color: red;">Click Me</button>
+  <div class="context-menu" id="context-menu">
+    <ul>
+      <li id="red">Red</li>
+      <li id="green">Green</li>
+      <li id="blue">Blue</li>
+    </ul>
+  </div>
+
+  <p>Right-click anywhere on the page to open the context menu and change the background color.</p>
+
+  <script>
+    // Get the context menu element
+    var contextMenu = document.getElementById("context-menu");
+
+    // Add an event listener for the contextmenu event
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+      
+      // Show the context menu at the mouse position
+      contextMenu.style.left = e.pageX + "px";
+      contextMenu.style.top = e.pageY + "px";
+      contextMenu.style.display = "block";
+    });
+
+    // Add event listeners for the menu items
+    document.getElementById("red").addEventListener("click", function() {
+      document.body.style.backgroundColor = "red";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("green").addEventListener("click", function() {
+      document.body.style.backgroundColor = "green";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("blue").addEventListener("click", function() {
+      document.body.style.backgroundColor = "blue";
+      contextMenu.style.display = "none";
+    });
+
+    // Add an event listener to close the context menu on a click outside it
+    document.addEventListener("click", function(e) {
+      if (!contextMenu.contains(e.target)) {
+        contextMenu.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
+_______________________________________________________________________________________________________________
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Button and Page Color</title>
+  <style>
+    /* Style for the context menu */
+    .context-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      min-width: 120px;
+    }
+
+    .context-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .context-menu ul li {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .context-menu ul li:hover {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Change Button and Page Color</h1>
+
+  <button id="myButton" style="background-color: red; color: white;">Click Me</button>
+
+  <div class="context-menu" id="context-menu">
+    <ul>
+      <li id="button-red">Button Red</li>
+      <li id="button-green">Button Green</li>
+      <li id="button-blue">Button Blue</li>
+      <li id="page-red">Page Red</li>
+      <li id="page-green">Page Green</li>
+      <li id="page-blue">Page Blue</li>
+    </ul>
+  </div>
+
+  <p>Right-click on the button or anywhere on the page to open the context menu and change the colors.</p>
+
+  <script>
+    // Get the button and context menu elements
+    var myButton = document.getElementById("myButton");
+    var contextMenu = document.getElementById("context-menu");
+
+    // Add an event listener for the contextmenu event on the button
+    myButton.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+
+      // Show the context menu at the mouse position
+      contextMenu.style.left = e.pageX + "px";
+      contextMenu.style.top = e.pageY + "px";
+      contextMenu.style.display = "block";
+    });
+
+    // Add an event listener for the contextmenu event on the page
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+
+      // Show the context menu at the mouse position
+      contextMenu.style.left = e.pageX + "px";
+      contextMenu.style.top = e.pageY + "px";
+      contextMenu.style.display = "block";
+    });
+
+    // Add event listeners for the menu items
+    document.getElementById("button-red").addEventListener("click", function() {
+      myButton.style.backgroundColor = "red";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("button-green").addEventListener("click", function() {
+      myButton.style.backgroundColor = "green";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("button-blue").addEventListener("click", function() {
+      myButton.style.backgroundColor = "blue";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-red").addEventListener("click", function() {
+      document.body.style.backgroundColor = "red";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-green").addEventListener("click", function() {
+      document.body.style.backgroundColor = "green";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-blue").addEventListener("click", function() {
+      document.body.style.backgroundColor = "blue";
+      contextMenu.style.display = "none";
+    });
+</script>
+</body>
+</html>
+________________________________________________________________________________________________
+
+//working code
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Button, Text and Page Color</title>
+  <style>
+    /* Style for the context menu */
+    .context-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      min-width: 120px;
+    }
+
+    .context-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .context-menu ul li {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .context-menu ul li:hover {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Change Button, Text and Page Color</h1>
+
+  <button id="myButton" style="background-color: red; color: white;">Click Me</button>
+
+  <div class="context-menu" id="context-menu">
+    <ul>
+      <li id="button-red">Button Red</li>
+      <li id="button-green">Button Green</li>
+      <li id="button-blue">Button Blue</li>
+      <li id="text-red">Text Red</li>
+      <li id="text-green">Text Green</li>
+      <li id="text-blue">Text Blue</li>
+      <li id="page-red">Page Red</li>
+      <li id="page-green">Page Green</li>
+      <li id="page-blue">Page Blue</li>
+    </ul>
+  </div>
+
+  <p>Right-click on the button or anywhere on the page to open the context menu and change the colors.</p>
+
+  <script>
+    // Get the button and context menu elements
+    var myButton = document.getElementById("myButton");
+    var contextMenu = document.getElementById("context-menu");
+
+    // Add an event listener for the contextmenu event on the button
+    myButton.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+
+      // Show the context menu at the mouse position
+      contextMenu.style.left = e.pageX + "px";
+      contextMenu.style.top = e.pageY + "px";
+      contextMenu.style.display = "block";
+    });
+
+    // Add an event listener for the contextmenu event on the page
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+
+      // Show the context menu at the mouse position
+      contextMenu.style.left = e.pageX + "px";
+      contextMenu.style.top = e.pageY + "px";
+      contextMenu.style.display = "block";
+    });
+
+    // Add event listeners for the menu items
+    document.getElementById("button-red").addEventListener("click", function() {
+      myButton.style.backgroundColor = "red";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("button-green").addEventListener("click", function() {
+      myButton.style.backgroundColor = "green";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("button-blue").addEventListener("click", function() {
+      myButton.style.backgroundColor = "blue";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("text-red").addEventListener("click", function() {
+      document.body.style.color = "red";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("text-green").addEventListener("click", function() {
+      document.body.style.color       = "green";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("text-blue").addEventListener("click", function() {
+      document.body.style.color = "blue";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-red").addEventListener("click", function() {
+      document.body.style.backgroundColor = "red";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-green").addEventListener("click", function() {
+      document.body.style.backgroundColor = "green";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-blue").addEventListener("click", function() {
+      document.body.style.backgroundColor = "blue";
+      contextMenu.style.display = "none";
+    });
+
+    // Add an event listener for clicks outside of the context menu to close it
+    document.addEventListener("click", function(e) {
+      if (!contextMenu.contains(e.target)) {
+        contextMenu.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
+
+________________________________________________________________________________________________
+
+//final code
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Button, Text and Page Color</title>
+  <style>
+    /* Style for the context menu */
+    .context-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      min-width: 120px;
+    }
+
+    .context-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .context-menu ul li {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .context-menu ul li:hover {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Change Button, Text and Page Color</h1>
+
+  <button id="myButton" style="background-color: black; color: rgb(252, 250, 250);">Click Me</button>
+
+  <div class="context-menu" id="context-menu">
+    <ul>
+      <li id="button-red">Button Red</li>
+      <li id="button-green">Button Green</li>
+      <li id="button-blue">Button Blue</li>
+      <li id="text-red">Text Red</li>
+      <li id="text-green">Text Green</li>
+      <li id="text-blue">Text Blue</li>
+      <li id="page-red">Page Red</li>
+      <li id="page-green">Page Green</li>
+      <li id="page-blue">Page Blue</li>
+    </ul>
+  </div>
+
+  <p>Right-click on the button or anywhere on the page to open the context menu and change the colors.</p>
+
+  <script>
+    // Get the button and context menu elements
+    var myButton = document.getElementById("myButton");
+    var contextMenu = document.getElementById("context-menu");
+
+    // Add an event listener for the contextmenu event on the button
+    myButton.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+
+      // Show the context menu at the mouse position
+      contextMenu.style.left = e.pageX + "px";
+      contextMenu.style.top = e.pageY + "px";
+      contextMenu.style.display = "block";
+    });
+
+    // Add an event listener for the contextmenu event on the page
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+
+      // Show the context menu at the mouse position
+      contextMenu.style.left = e.pageX + "px";
+      contextMenu.style.top = e.pageY + "px";
+      contextMenu.style.display = "block";
+    });
+
+    // Add event listeners for the menu items
+    document.getElementById("button-red").addEventListener("click", function() {
+      myButton.style.backgroundColor = "red";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("button-green").addEventListener("click", function() {
+      myButton.style.backgroundColor = "green";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("button-blue").addEventListener("click", function() {
+      myButton.style.backgroundColor = "blue";
+      myButton.style.color = "white";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("text-red").addEventListener("click", function() {
+      document.body.style.color = "red";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("text-green").addEventListener("click", function() {
+      document.body.style.color       = "green";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("text-blue").addEventListener("click", function() {
+      document.body.style.color = "blue";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-red").addEventListener("click", function() {
+      document.body.style.backgroundColor = "red";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-green").addEventListener("click", function() {
+      document.body.style.backgroundColor = "green";
+      contextMenu.style.display = "none";
+    });
+
+    document.getElementById("page-blue").addEventListener("click", function() {
+      document.body.style.backgroundColor = "blue";
+      contextMenu.style.display = "none";
+    });
+
+    // Add an event listener for clicks outside of the context menu to close it
+    document.addEventListener("click", function(e) {
+      if (!contextMenu.contains(e.target)) {
+        contextMenu.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
+
+_________________________________________________________________________________________________
+//taking input
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Change Colors</title>
+  <style>
+    /* Set default background and text colors */
+    body {
+      background-color: #ffffff; /* white */
+      color: #000000; /* black */
+    }
+  </style>
+</head>
+<body>
+  <button id="myButton">Change Colors</button>
+  <p>Sample Text</p>
+
+  <script>
+    document.getElementById("myButton").addEventListener("contextmenu", function(event) {
+      event.preventDefault(); // prevent the default context menu from appearing
+
+      // Prompt the user for a new color code for each item
+      var bgColor = prompt("Enter a new background color code (e.g. #FF0000):", "#ffffff");
+      var textColor = prompt("Enter a new text color code (e.g. #FF0000):", "#000000");
+      var buttonColor = prompt("Enter a new button color code (e.g. #FF0000):", "#cccccc");
+
+      // Update the background and text colors of the page body
+      if (bgColor) {
+        document.body.style.backgroundColor = bgColor;
+      }
+      if (textColor) {
+        document.body.style.color = textColor;
+      }
+
+      // Update the color of the button
+      if (buttonColor) {
+        document.getElementById("myButton").style.backgroundColor = buttonColor;
+      }
+    });
+  </script>
+</body>
+</html>
+________________________________________________________________________________________________
+//colour picker
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Changing Example</title>
+</head>
+<body>
+  <h1>Color Changing Example</h1>
+  <p>Change the colors of the buttons and text using the color pickers below.</p>
+  
+  <label for="button-color">Button Color:</label>
+  <input type="color" id="button-color" name="button-color" value="#ff0000">
+  <br>
+  <label for="text-color">Text Color:</label>
+  <input type="color" id="text-color" name="text-color" value="#000000">
+  <br>
+  <label for="background-color">Background Color:</label>
+  <input type="color" id="background-color" name="background-color" value="#ffffff">
+  <br>
+  
+  <div>
+    <button class="color-button">Button 1</button>
+    <p class="page-text">Text 1</p>
+  </div>
+  
+  <div>
+    <button class="color-button">Button 2</button>
+    <p class="page-text">Text 2</p>
+  </div>
+  
+  <div>
+    <button class="color-button">Button 3</button>
+    <p class="page-text">Text 3</p>
+  </div>
+
+  <script>
+    // Get the elements we want to modify
+    const buttons = document.querySelectorAll(".color-button");
+    const pageTexts = document.querySelectorAll(".page-text");
+    const body = document.querySelector("body");
+
+    // Get the color picker inputs
+    const buttonColorInput = document.getElementById("button-color");
+    const textColorInput = document.getElementById("text-color");
+    const backgroundColorInput = document.getElementById("background-color");
+
+    // Add an event listener to the button that changes the colors
+    buttons.forEach(function(button) {
+      button.addEventListener("click", function() {
+        button.style.backgroundColor = buttonColorInput.value;
+        button.style.color = textColorInput.value;
+      });
+    });
+    
+    // Add an event listener to the text that changes the color
+    pageTexts.forEach(function(pageText) {
+      pageText.style.color = textColorInput.value;
+    });
+
+    // Add an event listener to the body that changes the background color
+    backgroundColorInput.addEventListener("input", function() {
+      body.style.backgroundColor = backgroundColorInput.value;
+    });
+  </script>
+</body>
+</html>
+_______________________________________________________________________________________________
+//color picker with simultaneous updation
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Changing Example</title>
+</head>
+<body>
+  <h1>Color Changing Example</h1>
+  <p>Change the colors of the buttons and text using the color pickers below.</p>
+  
+  <label for="button-color">Button Color:</label>
+  <input type="color" id="button-color" name="button-color" value="#ff0000">
+  <br>
+  <label for="text-color">Text Color:</label>
+  <input type="color" id="text-color" name="text-color" value="#000000">
+  <br>
+  <label for="background-color">Background Color:</label>
+  <input type="color" id="background-color" name="background-color" value="#ffffff">
+  <br>
+  
+  <div>
+    <button class="color-button">Button 1</button>
+    <p class="page-text">Text 1</p>
+  </div>
+  
+  <div>
+    <button class="color-button">Button 2</button>
+    <p class="page-text">Text 2</p>
+  </div>
+  
+  <div>
+    <button class="color-button">Button 3</button>
+    <p class="page-text">Text 3</p>
+  </div>
+
+  <script>
+    // Get the elements we want to modify
+    const buttons = document.querySelectorAll(".color-button");
+    const pageTexts = document.querySelectorAll(".page-text");
+    const body = document.querySelector("body");
+
+    // Get the color picker inputs
+    const buttonColorInput = document.getElementById("button-color");
+    const textColorInput = document.getElementById("text-color");
+    const backgroundColorInput = document.getElementById("background-color");
+
+    // Add an event listener to the button that changes the colors
+    function updateColors() {
+      buttons.forEach(function(button) {
+        button.style.backgroundColor = buttonColorInput.value;
+        button.style.color = textColorInput.value;
+      });
+      pageTexts.forEach(function(pageText) {
+        pageText.style.color = textColorInput.value;
+      });
+      body.style.backgroundColor = backgroundColorInput.value;
+    }
+    
+    buttonColorInput.addEventListener("input", updateColors);
+    textColorInput.addEventListener("input", updateColors);
+    backgroundColorInput.addEventListener("input", updateColors);
+  </script>
+</body>
+</html>
+_______________________________________________________________________________________________
+//single button clr updation
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button Context Menu Example</title>
+	<style>
+		#myButton {
+			background-color: #0077cc;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		#context-menu {
+			display: none;
+			position: absolute;
+			background-color: white;
+			border: 1px solid #ccc;
+			padding: 5px;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+			z-index: 999;
+		}
+		#context-menu .item {
+			padding: 5px;
+			cursor: pointer;
+			user-select: none;
+		}
+		#context-menu .item:hover {
+			background-color: #f2f2f2;
+		}
+		#context-menu .item.change {
+			position: relative;
+		}
+		#context-menu .item.change .Color {
+			display: none;
+			position: absolute;
+			top: -5px;
+			right: calc(100% + 10px);
+			padding: 5px;
+			background-color: white;
+			border: 1px solid #ccc;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+		}
+		#context-menu .item.change .Color:after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: -10px;
+			border-style: solid;
+			border-width: 10px 0 10px 10px;
+			border-color: transparent transparent transparent #ccc;
+			transform: translateY(-50%);
+		}
+		#context-menu .item.change:hover .Color {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<button id="myButton">Click Me</button>
+	<div id="context-menu">
+		<div class="item change">Color<i style="padding-left: 60%;" class="fa-solid fa-caret-right"></i>
+			<div class="Color">
+				<div><input id="myTextBoxId" style="border-radius: 8px;;" type="color"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var button = document.getElementById("myButton");
+		var contextMenu = document.getElementById("context-menu");
+		var colorInput = document.getElementById("myTextBoxId");
+		
+		button.addEventListener("contextmenu", function(e) {
+			e.preventDefault();
+			contextMenu.style.display = "block";
+			contextMenu.style.top = e.pageY + "px";
+			contextMenu.style.left = e.pageX + "px";
+		});
+		
+		colorInput.addEventListener("change", function() {
+			button.style.backgroundColor = colorInput.value;
+			contextMenu.style.display = "none";
+		});
+		
+		document.addEventListener("click", function(e) {
+			if (!contextMenu.contains(e.target)) {
+				contextMenu.style.display = "none";
+			}
+		});
+	</script>
+</body>
+</html>
+___________________________________________________________________________________________________________________________________________________________
+//button context menu clr picker
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button Context Menu Example</title>
+	<style>
+		.myButton {
+			background-color: #0077cc;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		#context-menu {
+			display: none;
+			position: absolute;
+			background-color: white;
+			border: 1px solid #ccc;
+			padding: 5px;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+			z-index: 999;
+		}
+		#context-menu .item {
+			padding: 5px;
+			cursor: pointer;
+			user-select: none;
+		}
+		#context-menu .item:hover {
+			background-color: #f2f2f2;
+		}
+		#context-menu .item.change {
+			position: relative;
+		}
+		#context-menu .item.change .Color {
+			display: none;
+			position: absolute;
+			top: -5px;
+			right: calc(100% + 10px);
+			padding: 5px;
+			background-color: white;
+			border: 1px solid #ccc;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+		}
+		#context-menu .item.change .Color:after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: -10px;
+			border-style: solid;
+			border-width: 10px 0 10px 10px;
+			border-color: transparent transparent transparent #ccc;
+			transform: translateY(-50%);
+		}
+		#context-menu .item.change:hover .Color {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<button class="myButton">Click Me</button>
+    <button class="myButton">Click Me</button>
+    <button class="myButton">Click Me</button>
+    <button class="myButton">Click Me</button>
+    <button class="myButton">Click Me</button>
+    <button class="myButton">Click Me</button>
+    <button class="myButton">Click Me</button>
+    <button class="myButton">Click Me</button>
+	<div id="context-menu">
+		<div class="item change">Color<i style="padding-left: 60%;" class="fa-solid fa-caret-right"></i>
+			<div class="Color">
+				<div>
+                    <input id="myTextBoxId" style="border-radius: 8px;;" type="color">
+                </div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var button = document.getElementsByClassName("myButton");
+		var contextMenu = document.getElementById("context-menu");
+		var colorInput = document.getElementById("myTextBoxId");
+		for(let i =0;i<button.length;i++){
+		button[i].addEventListener("contextmenu", function(e) {
+			e.preventDefault();
+			contextMenu.style.display = "block";
+			contextMenu.style.top = e.pageY + "px";
+			contextMenu.style.left = e.pageX + "px";
+		});
+    };
+		colorInput.addEventListener("change", function() {
+			button.style.backgroundColor = colorInput.value;
+			contextMenu.style.display = "none";
+		});
+		
+		document.addEventListener("click", function(e) {
+			if (!contextMenu.contains(e.target)) {
+				contextMenu.style.display = "none";
+			}
+		});
+	</script>
+</body>
+</html>
+
+_______________________________________________________________________________________________
+
+//json bin
+
+{
+  "colors": {
+    "primary_color": "#E98670",
+    "secondary_color": "#F19C8A",
+    "link_color": "#C76D43",
+    "button_hover_color": "#C9886A"
+  },
+  "font": "Trebuchet MS (sans-serif)",
+  "NavBar": {
+    "Name": "Job Entry"
+  },
+  "Text": {
+    "Text1": "Find The Best Startup Job That Fit You",
+    "Text2": "Find The Perfect Job That You Deserved",
+    "Button1": "Search A Job",
+    "Button2": "Find A Talent"
+  },
+  "SearchContainer": {
+    "KeyWords": [
+      "SearchBar",
+      "JobListing",
+      "Latest Stories",
+      "Testimonial",
+      "Perks And Benefits"
+    ],
+    "Category": [
+      "Category1",
+      "Category2",
+      "Category3"
+    ],
+    "Location": [
+      "Location1",
+      "Location2",
+      "Location3"
+    ]
+  },
+  "Latest Stories": [
+    {
+      "Blog": "Techonlogy today",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "Icon": "Font-Awesome-Icon"
+    },
+    {
+      "Blog": "Healthy life",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "Icon": "Font-Awesome-Icon"
+    },
+    {
+      "Blog": "Innovation Management",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "Icon": "Font-Awesome-Icon"
+    },
+    {
+      "Blog": "Robotics today",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "Icon": "Font-Awesome-Icon"
+    },
+    {
+      "Blog": "Golden rules of Ideation",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "Icon": "Font-Awesome-Icon"
+    }
+  ],
+  "Testimonials": [
+    {
+      "Data": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "EmployeeName": "Clara",
+      "Position": "Developer",
+      "picture": "Font-Awesome-Icon"
+    },
+    {
+      "Data": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "EmployeeName": "Rebecca",
+      "Position": "Designer",
+      "picture": "Font-Awesome-Icon"
+    },
+    {
+      "Data": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "EmployeeName": "Gowtham",
+      "Position": "Digital Artist",
+      "picture": "Font-Awesome-Icon"
+    },
+    {
+      "Data": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+      "EmployeeName": "Krishna",
+      "Position": "Fresher",
+      "picture": "Font-Awesome-Icon"
+    }
+  ],
+  "perks": [
+    {
+      "Perk": "Transport",
+      "Description": " Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ",
+      "Image": "Font-Awesome-Icon"
+    },
+    {
+      "Name": "Food",
+      "Description": " Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ",
+      "Image": "Font-Awesome-Icon"
+    },
+    {
+      "Name": "Facilities",
+      "Description": " Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ",
+      "Image": "Font-Awesome-Icon"
+    },
+    {
+      "Name": "Health",
+      "Description": " Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ",
+      "Image": "Font-Awesome-Icon"
+    },
+    {
+      "Name": "Flexible Schedule",
+      "Description": " Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ",
+      "Image": "Font-Awesome-Icon"
+    },
+    {
+      "Name": "Appraisals",
+      "Description": " Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ",
+      "Image": "Font-Awesome-Icon"
+    }
+  ],
+  "footer": [
+    {
+      "Navigation": [
+        "Home",
+        "Solutions",
+        "Job listing",
+        "Latest stories",
+        "Testimonials",
+        "perks and benefits"
+      ],
+      "what we do": [
+        "Application services",
+        "cloud",
+        "data and analytics",
+        "Iot"
+      ],
+      "legal": [
+        "Privacy policy",
+        "terms of use",
+        "Trust and safety"
+      ],
+      "contact us": [
+        "email",
+        "phone",
+        "facebook",
+        "instagram",
+        "twitter"
+      ]
+    }
+  ]

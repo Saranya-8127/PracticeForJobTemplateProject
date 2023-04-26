@@ -1,0 +1,64 @@
+jquery
+bootstrap
+ajax
+html
+kubernetics
+python-join(),keywords,zip,enumerate,why set
+ml
+hadoop
+spark
+
+
+
+
+
+function setPrimaryColor(dyn)
+{
+  pageCustomazations.colors.primary_color =JSON.parse(dyn.responseText);
+}
+let headers = [{"X-Master-Key":"$2b$10$k9oI5hAKGm0NudZ.Qyv8QeVAM/KlVWa0VM0jwBUjvFvfhdJ.IVYPa"}];
+peformAjaxCAll("GET","https://api.jsonbin.io/v3/b/642d0949ebd26539d0a4c126/latest",headers,"",setPrimaryColor);
+
+
+function peformAjaxCAll(method,url,headers,Params,callBackFunction)
+{
+    let dyn = new XMLHttpRequest();
+    dyn.onreadystatechange = () => {
+      if (dyn.readyState == XMLHttpRequest.DONE){
+        callBackFunction(dyn);
+      }
+    };
+    dyn.open(method, url, true);
+    foreach(header in headers)
+    {
+      dyn.setRequestHeader(header.key, header.value);
+    }
+    dyn.send();
+
+}
+
+let pageCustomazations = {
+  "colors":{
+            "primary_color":"#00B074" ,
+            "secondary_color": "#2B9BFF",
+            "link_color":"orange",
+          },
+  "font": "Arial",        
+  "perks": [
+    {"Name":"Transport", "Description":"Thdsasdf...", "Icon":"Font-Awesome-Icon"},
+    {"Name":"Transport", "Description":"Thdsasdf...", "Icon":"Font-Awesome-Icon"},
+    {"Name":"Transport", "Description":"Thdsasdf...", "Icon":"Font-Awesome-Icon"},
+    {"Name":"Transport", "Description":"Thdsasdf...", "Icon":"Font-Awesome-Icon"},
+  ]       
+}
+
+
+function applyPageCustomizations()
+{
+  var r = document.querySelector(':root');
+  var var1 = JSON.parse(pageCustomazations.colors.primary_color);
+  r.style.setProperty('--primary', var1.record.change[0].Color);
+
+  var var1 = JSON.parse(pageCustomazations.colors.secondary_color);
+  r.style.setProperty('--secondary', var1.record.change[0].Color);
+}

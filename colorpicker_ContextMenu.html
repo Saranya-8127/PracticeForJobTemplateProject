@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Changing Example</title>
+</head>
+<body>
+  <h1>Color Changing Example</h1>
+  <p>Change the colors of the button, text, and background using the color pickers below.</p>
+  <label for="button-color">Button Color:</label>
+  <input type="color" id="button-color" name="button-color" value="#ff0000">
+  <br>
+  <label for="text-color">Text Color:</label>
+  <input type="color" id="text-color" name="text-color" value="#000000">
+  <br>
+  <label for="background-color">Background Color:</label>
+  <input type="color" id="background-color" name="background-color" value="#ffffff">
+  <br>
+  <button id="color-button">Change Colors</button>
+  <p id="page-text">This is some example text.</p>
+
+  <script>
+    // Get the elements we want to modify
+    const button = document.getElementById("color-button");
+    const pageText = document.getElementById("page-text");
+    const body = document.querySelector("body");
+
+    // Get the color picker inputs
+    const buttonColorInput = document.getElementById("button-color");
+    const textColorInput = document.getElementById("text-color");
+    const backgroundColorInput = document.getElementById("background-color");
+
+    // Add an event listener to the button that changes the colors
+    button.addEventListener("click", function() {
+      button.style.backgroundColor = buttonColorInput.value;
+      button.style.color = textColorInput.value;
+      pageText.style.color = textColorInput.value;
+      body.style.backgroundColor = backgroundColorInput.value;
+    });
+  </script>
+</body>
+</html>

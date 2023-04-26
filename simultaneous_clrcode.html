@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button Context Menu Example</title>
+	<style>
+		.myButton {
+	background-color: #7cc6f8;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+    .myButton:hover {
+        background-color: rgb(4, 12, 15);
+        color: rgb(125, 134, 138);
+}
+
+        .text {
+        text-indent: 50px;
+        text-align: justify;
+        letter-spacing: 3px;
+        cursor: pointer;
+        }
+		#context-menu {
+			display: none;
+			position: absolute;
+			background-color: white;
+			border: 1px solid #ccc;
+			padding: 5px;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+			z-index: 999;
+		}
+		#context-menu .item {
+			padding: 5px;
+			cursor: pointer;
+			user-select: none;
+		}
+		#context-menu .item:hover {
+			background-color: #f2f2f2;
+		}
+		#context-menu .item.change {
+			position: relative;
+		}
+		#context-menu .item.change .Color {
+			display: none;
+			position: absolute;
+			top: -5px;
+			right: calc(100% + 10px);
+			padding: 5px;
+			background-color: white;
+			border: 1px solid #ccc;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+		}
+        
+		#context-menu .item.change .Color:after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: -10px;
+			border-style: solid;
+			border-width: 10px 0 10px 10px;
+			border-color: transparent transparent transparent #ccc;
+			transform: translateY(-50%);
+		}
+		#context-menu .item.change:hover .Color {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<button class="myButton">Click Me</button></br>
+    <button class="myButton">Click Me</button></br>
+    <button class="myButton">Click Me</button></br>
+    <button class="myButton">Click Me</button></br>
+    <button class="myButton">Click Me</button></br>
+    <button class="myButton">Click Me</button></br>
+    <button class="myButton">Click Me</button></br>
+    <button class="myButton">Click Me</button></br>
+    <p class="text">sample 1</p></br>
+    <p class="text">sample 2</p></br>
+    <p class="text">sample 3</p></br>
+    <p class="text">sample 4</p></br>
+    <p class="text">sample 5</p></br>
+    <p class="text">sample 6</p></br>
+    <p class="text">sample 7</p></br>
+    <p class="text">sample 8</p></br>
+	<div id="context-menu">
+		<div class="item change">Color<i style="padding-left: 60%;" class="fa-solid fa-caret-right"></i>
+			<div class="Color">
+				<div>
+                    <input id="myTextBoxId" style="border-radius: 8px;;" type="color">
+                </div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var button = document.getElementsByClassName("myButton");
+        var text = document.getElementsByClassName("text");
+		var contextMenu = document.getElementById("context-menu");
+		var colorInput = document.getElementById("myTextBoxId");
+		for(let i =0;i<button.length;i++){
+		button[i].addEventListener("contextmenu", function(e) {
+			e.preventDefault();
+			contextMenu.style.display = "block";
+			contextMenu.style.top = e.pageY + "px";
+			contextMenu.style.left = e.pageX + "px";
+		});
+    };
+        for(let i =0;i<text.length;i++){
+            button[i].addEventListener("contextmenu", function(e) {
+                e.preventDefault();
+                contextMenu.style.display = "block";
+                contextMenu.style.top = e.pageY + "px";
+                contextMenu.style.left = e.pageX + "px";
+            });
+    };
+		colorInput.addEventListener("change", function() {
+            for(let i =0;i<button.length;i++){
+			button[i].style.backgroundColor = colorInput.value;
+			contextMenu.style.display = "none";}
+		});
+        colorInput.addEventListener("change", function() {
+            for(let i =0;i<text.length;i++){
+			text[i].style.backgroundColor = colorInput.value;
+			contextMenu.style.display = "none";}
+		});
+		
+		document.addEventListener("click", function(e) {
+			if (!contextMenu.contains(e.target)) {
+				contextMenu.style.display = "none";
+			}
+		});
+	</script>
+</body>
+</html>

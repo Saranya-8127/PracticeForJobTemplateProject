@@ -1,0 +1,9 @@
+<html>
+<bobdy>
+ <form action="www.saranya.com/mypage">
+<label></label><input type="text" />
+<input type ="submit"/>
+</form>
+</body>
+
+</html>

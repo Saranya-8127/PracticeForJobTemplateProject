@@ -1,0 +1,6 @@
+1. check why sereies.values returns with . saparated
+print('Values :', Sample_Series.values)
+Values : [ 1.  3.  5.  7.  4. nan  2.]
+2.load test?
+3. nulls in df
+4.dtypes-obj

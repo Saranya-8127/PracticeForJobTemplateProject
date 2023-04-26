@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Change Colors</title>
+  <style>
+    /* Set default background and text colors */
+    body {
+      background-color: #ffffff; /* white */
+      color: #000000; /* black */
+    }
+    
+    #myButton:hover {
+      background-color: blue;
+      color: white;
+    }
+  
+  </style>
+</head>
+<body>
+  <h1>Context Menu</h1>
+  <button id="myButton">Change Colors</button>
+  <p>Sample Text</p>
+  <p>Lorem ipsum dolor sit amet. Sed reprehenderit repellendus non consequuntur beatae rem numquam reprehenderit eum quibusdam maiores qui exercitationem quia in numquam enim. In consequuntur unde est autem dicta a accusantium autem est doloribus fuga.
+
+    Eos voluptatem quia in rerum perspiciatis et possimus pariatur vel repellendus ipsum? Et architecto voluptatum eum blanditiis voluptatum ut quaerat dolores aut expedita nostrum.
+    
+    Non dolor rerum eos fugiat velit aut voluptas repudiandae et facere molestiae. Ad nulla assumenda aut sunt consectetur aut labore veniam et nostrum quia. Eos laudantium alias ea dolorem asperiores et porro perferendis qui similique incidunt sit Quis ipsum non nulla numquam.</p>
+
+  <script>
+    document.getElementById("myButton").addEventListener("contextmenu", function(event) {
+      event.preventDefault(); // prevent the default context menu from appearing
+
+      // Prompt the user for a new color code for each item
+      var bgColor = prompt("Enter a new background color code (e.g. #FF0000):", "#ffffff");
+      var textColor = prompt("Enter a new text color code (e.g. #FF0000):", "#000000");
+      var buttonColor = prompt("Enter a new button color code (e.g. #FF0000):", "#cccccc");
+
+      // Update the background and text colors of the page body
+      if (bgColor) {
+        document.body.style.backgroundColor = bgColor;
+      }
+      if (textColor) {
+        document.body.style.color = textColor;
+      }
+
+      // Update the color of the button
+      if (buttonColor) {
+        document.getElementById("myButton").style.backgroundColor = buttonColor;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Changing Example</title>
+</head>
+<body>
+  <h1>Color Changing Example</h1>
+  <p>Change the colors of the buttons and text using the color pickers below.</p>
+  
+  <label for="button-color">Button Color:</label>
+  <input type="color" id="button-color" name="button-color" value="#ff0000">
+  <br>
+  <label for="text-color">Text Color:</label>
+  <input type="color" id="text-color" name="text-color" value="#000000">
+  <br>
+  <label for="background-color">Background Color:</label>
+  <input type="color" id="background-color" name="background-color" value="#ffffff">
+  <br>
+  
+  <div>
+    <button class="color-button">Button 1</button>
+    <p class="page-text">Text 1</p>
+  </div>
+  
+  <div>
+    <button class="color-button">Button 2</button>
+    <p class="page-text">Text 2</p>
+  </div>
+  
+  <div>
+    <button class="color-button">Button 3</button>
+    <p class="page-text">Text 3</p>
+  </div>
+
+  <script>
+    // Get the elements we want to modify
+    const buttons = document.querySelectorAll(".color-button");
+    const pageTexts = document.querySelectorAll(".page-text");
+    const body = document.querySelector("body");
+
+    // Get the color picker inputs
+    const buttonColorInput = document.getElementById("button-color");
+    const textColorInput = document.getElementById("text-color");
+    const backgroundColorInput = document.getElementById("background-color");
+
+    // Add an event listener to the button that changes the colors
+    function updateColors() {
+      buttons.forEach(function(button) {
+        button.style.backgroundColor = buttonColorInput.value;
+        button.style.color = textColorInput.value;
+      });
+      pageTexts.forEach(function(pageText) {
+        pageText.style.color = textColorInput.value;
+      });
+      body.style.backgroundColor = backgroundColorInput.value;
+    }
+    
+    buttonColorInput.addEventListener("input", updateColors);
+    textColorInput.addEventListener("input", updateColors);
+    backgroundColorInput.addEventListener("input", updateColors);
+  </script>
+</body>
+</html>
